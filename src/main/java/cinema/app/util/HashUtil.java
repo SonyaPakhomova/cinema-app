@@ -16,7 +16,7 @@ public class HashUtil {
             MessageDigest messageDigest = MessageDigest.getInstance(HASH_ALGORITHM);
             messageDigest.update(salt);
             byte[] digest = messageDigest.digest(password.getBytes());
-            for (byte values : digest) {
+            for (byte value : digest) {
                 builder.append(String.format("%02x", values));
             }
             return builder.toString();
