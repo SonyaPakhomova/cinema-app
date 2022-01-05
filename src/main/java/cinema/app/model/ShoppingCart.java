@@ -20,7 +20,7 @@ public class ShoppingCart {
     @Id
     private Long id;
     @OneToMany
-    @JoinTable(name = "shopping_cart_teckets",
+    @JoinTable(name = "shopping_cart_tickets",
             joinColumns = @JoinColumn(name = "shopping_cart_id"),
             inverseJoinColumns = @JoinColumn(name = "ticket_id"))
     private List<Ticket> tickets;
