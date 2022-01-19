@@ -12,14 +12,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-@NoArgsConstructor
-@RequiredArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -27,15 +26,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToMany
-    @JoinTable(name = "orders_tickets",
-            joinColumns = @JoinColumn(name = "order_id"),
+    @JoinTable(joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "ticket_id"))
-    @NonNull
+    @ToString.Exclude
     private List<Ticket> tickets;
-    @Column(name = "order_date")
-    @NonNull
-    private LocalDateTime orderDate;
+    @Column(name = "order_time")
+    private LocalDateTime orderTime;
     @ManyToOne
-    @NonNull
     private User user;
 }
