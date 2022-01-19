@@ -9,22 +9,24 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "shopping_carts")
 public class ShoppingCart {
     @Id
     private Long id;
     @OneToMany
-    @JoinTable(name = "shopping_cart_tickets",
+    @JoinTable(name = "shopping_carts_tickets",
             joinColumns = @JoinColumn(name = "shopping_cart_id"),
             inverseJoinColumns = @JoinColumn(name = "ticket_id"))
     private List<Ticket> tickets;
-    @OneToOne
     @MapsId
+    @OneToOne
     private User user;
 }
