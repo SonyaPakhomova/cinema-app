@@ -39,4 +39,5 @@ Download MySQL Workbench and create schema (if you need).
 Add your information in db.properties file in src/main/resources folder.  If you use another DBMS change hibernate.dialect, as well.
 Run this app with Tomcat local server.
 You will be redirected to login page. You can use username bob@gmail.com with password 1234 to login as admin.
+You can also create your own user by sending a POST request to this url : `/register`
 If you want to send another requests instead GET use POSTMAN or other similar app.
