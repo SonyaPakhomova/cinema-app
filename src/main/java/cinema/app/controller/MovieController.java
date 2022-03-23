@@ -22,13 +22,13 @@ public class MovieController {
     private final MovieService movieService;
     private final MovieMapper movieMapper;
 
-    @PostMapping
+    @PostMapping("/add")
     public MovieResponseDto add(@RequestBody @Valid MovieRequestDto requestDto) {
         Movie movie = movieService.add(movieMapper.mapToModel(requestDto));
         return movieMapper.mapToDto(movie);
     }
 
-    @GetMapping
+    @GetMapping("/get")
     public List<MovieResponseDto> getAll() {
         return movieService.getAll()
                 .stream()
